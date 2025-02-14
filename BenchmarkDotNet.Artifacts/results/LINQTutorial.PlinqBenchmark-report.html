@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>LINQTutorial.PlinqBenchmark-20250214-122141</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.14.0, Windows 11 (10.0.26100.3194)
+Intel Core Ultra 7 155H, 1 CPU, 22 logical and 16 physical cores
+.NET SDK 9.0.101
+  [Host]     : .NET 8.0.11 (8.0.1124.51707), X64 RyuJIT AVX2
+  DefaultJob : .NET 8.0.11 (8.0.1124.51707), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method </th><th>Size</th><th>Mean    </th><th>Error </th><th>StdDev</th><th>Median  </th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>Normal_Linq</td><td>100</td><td>224.7 ns</td><td>4.17 ns</td><td>3.48 ns</td><td>224.2 ns</td><td>800 B</td>
+</tr><tr><td>Parallel_Linq</td><td>100</td><td>13,171.5 ns</td><td>369.02 ns</td><td>1,076.46 ns</td><td>13,383.3 ns</td><td>13976 B</td>
+</tr><tr><td>Normal_Linq</td><td>100000</td><td>652,745.6 ns</td><td>13,045.21 ns</td><td>27,230.21 ns</td><td>638,740.6 ns</td><td>524858 B</td>
+</tr><tr><td>Parallel_Linq</td><td>100000</td><td>589,144.6 ns</td><td>10,006.83 ns</td><td>9,828.04 ns</td><td>587,178.3 ns</td><td>1263478 B</td>
+</tr><tr><td>Normal_Linq</td><td>1000000</td><td>5,620,357.7 ns</td><td>34,327.67 ns</td><td>30,430.58 ns</td><td>5,616,260.9 ns</td><td>4195209 B</td>
+</tr><tr><td>Parallel_Linq</td><td>1000000</td><td>4,990,420.7 ns</td><td>52,326.81 ns</td><td>48,946.53 ns</td><td>4,991,555.9 ns</td><td>9982428 B</td>
+</tr></tbody></table>
+</body>
+</html>

@@ -1,4 +1,5 @@
-﻿using LINQTutorial;
+﻿using BenchmarkDotNet.Running;
+using LINQTutorial;
 
 LinqKnowledgeSharing linqKnowledgeSharing = new();
 
@@ -18,4 +19,16 @@ LinqKnowledgeSharing linqKnowledgeSharing = new();
 //linqKnowledgeSharing.Grouping_Method();
 
 // Demo for Join() (Joining)
-linqKnowledgeSharing.Join_Method();
+//linqKnowledgeSharing.Join_Method();
+
+// Demo for Deferred Execution 
+//linqKnowledgeSharing.Deferred_Execution();
+
+// Demo for Anonymous Types and Projections
+//linqKnowledgeSharing.Anonymous_Types_Projections();
+
+// Demo for Chaining Multiple LINQ Queries
+//linqKnowledgeSharing.Chaining_Multiple_LINQ_Queries();
+
+// PLINQ and Normal LINQ benchmark
+BenchmarkRunner.Run<PlinqBenchmark>();

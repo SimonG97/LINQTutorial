@@ -34,7 +34,7 @@ public class LinqKnowledgeSharing
     public void Select_Method()
     {
         // Projection: Select()
-        var nameLengths = names.Select(n => new { Name = n, Length = n.Length });
+        var nameLengths = names.Select(n => new { Name = n, Length = n.Length });// Anonymous type
         Console.WriteLine("Names and Lengths:");
         foreach (var item in nameLengths)
         {
@@ -113,6 +113,55 @@ public class LinqKnowledgeSharing
             Console.WriteLine($"{item.Name}: {item.Amount}");
         }
     }
+
+
+    public void Deferred_Execution()
+    {
+        var query = numbers.Where(n => n > 2); // Query is built, but NOT executed
+
+        numbers.Add(6); // Data source changes
+
+        var check = query; // check query
+
+        foreach (var number in query) // Execution happens here!
+        {
+            Console.WriteLine(number); // Output: 3, 4, 5, 6 (reflects the change)
+        }
+
+    }
+
+    public void Anonymous_Types_Projections()
+    {
+        // Anonymous Types and Projections
+        var products = new List<Product>
+        {
+            new() { Name = "Laptop", Price = 1000, Category = "Electronics" },
+            new() { Name = "Mobile", Price = 500, Category = "Electronics" },
+            new() { Name = "Shirt", Price = 50, Category = "Clothing" },
+            new() { Name = "Trousers", Price = 70, Category = "Clothing" }
+        };
+
+        var query = products.Select(p => new { p.Name, p.Price }); // Anonymous type
+        foreach (var item in query)
+        {
+            Console.WriteLine($"{item.Name}: {item.Price}");
+        }
+    }
+
+    public void Chaining_Multiple_LINQ_Queries()
+    {
+        // Chaining Multiple LINQ Queries
+        var query = numbers.Where(n => n > 2)
+                           .OrderBy(n => n)
+                           .Select(n => n * 2);
+
+        foreach (var number in query)
+        {
+            Console.WriteLine(number);
+        }
+    }
+
+    
 }
 
 
