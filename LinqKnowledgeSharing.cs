@@ -1,3 +1,4 @@
+using System.Net.NetworkInformation;
 using LINQTutorial.Model;
 
 namespace LINQTutorial;
@@ -161,7 +162,34 @@ public class LinqKnowledgeSharing
         }
     }
 
-    
+    public void Multiple_Enumerations()
+    {
+        // Bad practice: Multiple Enumerations
+        var query = numbers.Where(n => n > 2);
+
+        int count = query.Count(); // Query executed
+
+        foreach (var number in query) // Query executed again
+        {
+            Console.WriteLine(number);
+        }
+
+        // Good practice: Materialize the query
+        var materializedQuery = numbers.Where(n => n > 2).ToList(); // Query executed
+
+        int materializedCount = materializedQuery.Count; // No query execution
+
+        foreach (var number in materializedQuery) // No query execution
+        {
+            Console.WriteLine(number);
+        }
+
+
+    }
+
+
+
+
 }
 
 

@@ -31,4 +31,11 @@ LinqKnowledgeSharing linqKnowledgeSharing = new();
 //linqKnowledgeSharing.Chaining_Multiple_LINQ_Queries();
 
 // PLINQ and Normal LINQ benchmark
-BenchmarkRunner.Run<PlinqBenchmark>();
+//BenchmarkRunner.Run<PlinqBenchmark>();
+
+// Demo for Avoid Multiple Enumerations
+//linqKnowledgeSharing.Multiple_Enumerations();
+
+// Task to benchmark Projections early vs Late.
+
+// Task to benchmark String Comparisons (case sensitive vs case insensitive)
